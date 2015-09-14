@@ -1,0 +1,51 @@
+<!--  model to add cient start from here -->
+  <modal title="Add Client" visible="showModal" >
+  
+  <div class="panel panel-default">
+  
+  
+   <div class="panel-heading">
+      <h4 class="panel-title">
+		Add Client<button type="button" class="close" data-dismiss="modal" aria-hidden="true"  ng-click="cancel()" tooltip="Close.!">&times;</button>         
+      </h4>
+      
+    </div>
+    
+ <div class="panel-body">
+  		<div ng-show="clientform.$submitted || clientform.clientname.$touched || clientform.clientemail.$touched || clientform.clientphone.$touched || clientform.clientdesc.$touched ">
+     		 <span ng-show="clientform.clientname.$error.required && clientform.clientname.$touched" >Please Enter Client Name.<br></span>
+     		 <span ng-show="clientform.clientemail.$error.required && clientform.clientemail.$touched" >Please Enter Email Address.<br></span>
+     		 <span ng-show="clientform.clientemail.$error.email && clientform.clientemail.$touched" >Please Enter Valid Email Address.<br></span>
+     		 <span ng-show="clientform.clientphone.$error.required && clientform.clientphone.$touched" >Please Enter phone.<br></span> 
+     		 <span ng-show="clientform.clientdesc.$error.required && clientform.clientdesc.$touched " >Please Enter Description.<br></span> 
+		 </div>
+  
+    <form name="clientform"  novalidate >
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" name="clientname" class="form-control" placeholder="Enter Name" ng-model="client.name"  required="" />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="clientemail" placeholder="email" ng-model="client.email" required="" />
+      </div>
+      
+        <div class="form-group">
+        <label for="phone">phone No</label>
+        <input type="test" class="form-control" name="clientphone" placeholder="phone" ng-model="client.phone" required="" />
+      </div>
+      
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" name="clientdesc" placeholder="desc" ng-model="client.desc" col="20" row="10" required=""  >
+
+        </textarea>
+      </div>
+       <input type="hidden" ng-model="client.id" value="{{client.id}}">
+       <button type="submit" class="btn btn-default" ng-click="AddClient(client)">Submit</button>
+    </form>
+  </div>
+</div>
+</modal>
+ <!--  model to add cient end here -->

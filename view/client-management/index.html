@@ -1,0 +1,57 @@
+<div class="row" >
+<div role="alert" class="alert alert-success" ng-show="isSuccess" class="ng-hide">
+<button aria-hidden="true" data-dismiss="alert" class="close" type="button" ng-click="switchBool(isSuccess)" >&times;</button>
+      <strong>{{message}}</strong>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="clearfix"></div>
+<div class="clearfix"></div>
+
+<div class="row">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Client Mangment System 
+ 		 <button type="button" class="btn btn-default btn-xs" style="float:right" tooltip="Add New Client" ng-click="Addclient()">
+ 			 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+ 		 </button>
+  </div>
+
+   <div class="panel-body" ng-init="getClient()">
+   
+   	<div class="row">
+    	<div class="col-sm-12"><input type="text" class="form-control" ng-model="search.client_name" placeholder="Search clients here" /></div>
+   </div>
+  	
+   <div class="clearfix"></div>
+   
+    <div class="row mrgn-top">
+		<div class="col-sm-4 "   ng-repeat="clientlist in dbclient | filter:search">
+			<div class="thumbnail " >
+				<div class="panel panel-default">
+ 					 <div class="panel-heading"><a href="#">#{{clientlist.client_name}}</a>
+ 					 <span class="del">
+ 					 <a  href="javascript:void(0)" ng-click="editClient(clientlist.client_id)"  tooltip="Edit This Client"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+					 </a>
+					 &nbsp;
+ 					 <a  href="javascript:void(0)" ng-click="deleteClient(clientlist.client_id)" class="del" tooltip="Delete This Client"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					 </a>
+					 </span>
+					 </div>
+						<div class="detail"><strong>Name : </strong>{{clientlist.client_name}}</div>
+						<div class="detail" ><strong>Email : </strong>{{clientlist.client_email}}</div>
+						<div class="detail" ><strong>Phone : </strong>{{clientlist.client_phone}}</div>
+				</div>
+			</div>
+		<div class="col-sm-12 center"><span ng-show="dbclient.length==0"><strong>No clients found.</strong></span></div>
+	</div>
+</div>
+	
+	
+	
+   </div>
+</div>
+
+</div>
